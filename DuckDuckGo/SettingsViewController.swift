@@ -28,6 +28,7 @@ class SettingsViewController: UITableViewController {
 
     @IBOutlet weak var defaultBrowserCell: UITableViewCell!
     @IBOutlet weak var themeAccessoryText: UILabel!
+    @IBOutlet weak var darkReaderAccessoryText: UILabel!
     @IBOutlet weak var fireButtonAnimationAccessoryText: UILabel!
     @IBOutlet weak var appIconCell: UITableViewCell!
     @IBOutlet weak var appIconImageView: UIImageView!
@@ -90,6 +91,7 @@ class SettingsViewController: UITableViewController {
 
         configureAutofillCell()
         configureThemeCellAccessory()
+        configureDarkReaderCellAccessory()
         configureFireButtonAnimationCellAccessory()
         configureTextSizeCell()
         configureDisableAutocompleteToggle()
@@ -106,6 +108,7 @@ class SettingsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        configureDarkReaderCellAccessory()
         configureFireButtonAnimationCellAccessory()
         configureTextSizeCell()
         configureAutoClearCellAccessory()
@@ -156,7 +159,22 @@ class SettingsViewController: UITableViewController {
             themeAccessoryText.text = UserText.themeAccessoryDark
         }
     }
-    
+
+    private func configureDarkReaderCellAccessory() {
+        switch appSettings.currentDarkReaderModeName {
+        case .systemDefault:
+            darkReaderAccessoryText.text = UserText.darkReaderModeAccessorySystemDefault
+        case .themeDefault:
+            darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryThemeDefault
+        case .light:
+            darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryLight
+        case .dark:
+            darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryDark
+        case .off:
+            darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryOff
+        }
+    }
+
     private func configureFireButtonAnimationCellAccessory() {
         fireButtonAnimationAccessoryText.text = appSettings.currentFireButtonAnimation.descriptionText
     }
@@ -383,6 +401,7 @@ extension SettingsViewController: Themable {
     func decorate(with theme: Theme) {
         decorateNavigationBar(with: theme)
         configureThemeCellAccessory()
+        configureDarkReaderCellAccessory()
         
         for label in labels {
             label.textColor = theme.tableCellTextColor

@@ -35,7 +35,8 @@ public class AppUserDefaults: AppSettings {
     private struct Keys {
         static let autocompleteKey = "com.duckduckgo.app.autocompleteDisabledKey"
         static let currentThemeNameKey = "com.duckduckgo.app.currentThemeNameKey"
-        
+        static let currentDarkReaderModeName = "com.duckduckgo.app.currentDarkReaderModeNameKey"
+
         static let autoClearActionKey = "com.duckduckgo.app.autoClearActionKey"
         static let autoClearTimingKey = "com.duckduckgo.app.autoClearTimingKey"
         
@@ -98,7 +99,29 @@ public class AppUserDefaults: AppSettings {
         }
         
     }
-    
+
+    var currentDarkReaderModeName: DarkReaderModeName {
+        
+        get {
+            var currentDarkReaderModeName: DarkReaderModeName?
+            if let stringName = userDefaults?.string(forKey: Keys.currentDarkReaderModeName) {
+                currentDarkReaderModeName = DarkReaderModeName(rawValue: stringName)
+            }
+            
+            if let modeName = currentDarkReaderModeName {
+                return modeName
+            } else {
+                // TODO: decide the default setting
+                return .themeDefault
+            }
+        }
+        
+        set {
+            userDefaults?.setValue(newValue.rawValue, forKey: Keys.currentDarkReaderModeName)
+        }
+        
+    }
+
     var autoClearAction: AutoClearSettingsModel.Action {
         
         get {

@@ -165,11 +165,39 @@
                                             <segue destination="gMx-K0-9ev" kind="show" id="Pes-Ig-9hs"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DRI-6u-LFY" detailTextLabel="DRI-kl-uOO" style="IBUITableViewCellStyleValue1" id="DRI-9E-vOG" userLabel="Dark Reader Intergation Cell">
+                                        <rect key="frame" x="0.0" y="322.66667175292969" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DRI-9E-vOG" id="DRI-xh-CdC">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Dark Reader Integration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DRI-6u-LFY">
+                                                    <rect key="frame" x="20" y="13.000000000000002" width="170.66666666666666" height="18.666666666666668"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DRI-kl-uOO">
+                                                    <rect key="frame" x="326.33333333333331" y="13.000000000000002" width="51" height="18.666666666666668"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                                    <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="DRI-K0-9ev" kind="show" id="DRI-Ig-9hs"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Cx1-3k-5Be">
-                                        <rect key="frame" x="0.0" y="324.33333206176758" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="366.33333969116211" width="414" height="44.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="Cx1-3k-5Be" id="idf-HB-Rid">
-                                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="44.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Icon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKo-er-HNj">
@@ -850,6 +878,7 @@
                         <outlet property="autoClearAccessoryText" destination="ZiK-vA-FAa" id="NMH-tv-Mmr"/>
                         <outlet property="autocompleteToggle" destination="PNd-rx-En1" id="KD7-z4-4OW"/>
                         <outlet property="autofillCell" destination="m6W-IH-HQ9" id="O4b-5y-2Ta"/>
+                        <outlet property="darkReaderAccessoryText" destination="DRI-kl-uOO" id="DRI-um-CfT"/>
                         <outlet property="debugCell" destination="FqT-nq-YvQ" id="p0S-et-ggh"/>
                         <outlet property="defaultBrowserCell" destination="TFL-da-OrV" id="b59-Ul-Qut"/>
                         <outlet property="doNotSellAccessoryText" destination="3Eb-dV-4ZX" id="i3h-XN-Jzz"/>
@@ -876,7 +905,9 @@
                         <outletCollection property="labels" destination="oM7-1o-9oY" collectionClass="NSMutableArray" id="51p-86-4KL"/>
                         <outletCollection property="labels" destination="2ky-s9-1aZ" collectionClass="NSMutableArray" id="CaV-P3-c1K"/>
                         <outletCollection property="accessoryLabels" destination="Gbx-kl-uOO" collectionClass="NSMutableArray" id="Gnw-Cu-leX"/>
+                        <outletCollection property="accessoryLabels" destination="DRI-kl-uOO" collectionClass="NSMutableArray" id="DRI-Cu-leX"/>
                         <outletCollection property="labels" destination="f1O-6u-LFY" collectionClass="NSMutableArray" id="7iH-K1-eOt"/>
+                        <outletCollection property="labels" destination="DRI-6u-LFY" collectionClass="NSMutableArray" id="DRI-K1-eOt"/>
                         <outletCollection property="labels" destination="a1T-ui-4Nw" collectionClass="NSMutableArray" id="pfw-Kn-kET"/>
                         <outletCollection property="labels" destination="cKo-er-HNj" collectionClass="NSMutableArray" id="TyT-Oa-igp"/>
                         <outletCollection property="labels" destination="ekF-SJ-PAQ" collectionClass="NSMutableArray" id="se8-tg-Bxf"/>
@@ -1746,6 +1777,63 @@ After all, the internet shouldn’t feel so creepy, and getting the privacy you 
                     <navigationItem key="navigationItem" title="Theme" id="gS2-mg-l7R"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dty-fX-sNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4942" y="930"/>
+        </scene>
+        <!--Dark Reader Integration-->
+        <scene sceneID="DRI-Ld-WqV">
+            <objects>
+                <tableViewController id="DRI-K0-9ev" userLabel="Dark Reader Integration" customClass="DarkReaderSettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="DRI-PZ-aXX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DarkReaderModeItemCell" id="DRI-R5-CPt" userLabel="DarkReaderModeItemCell" customClass="DarkReaderModeItemCell" customModule="DuckDuckGo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DRI-R5-CPt" id="DRI-Iy-uPB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="DRI-4n-8Qi">
+                                            <rect key="frame" x="20" y="12.666666666666666" width="374" height="18.666666666666671"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRI-SV-zy7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="18.666666666666668"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="DRI-4n-8Qi" firstAttribute="leading" secondItem="DRI-Iy-uPB" secondAttribute="leadingMargin" id="DRI-BS-yOL"/>
+                                        <constraint firstItem="DRI-4n-8Qi" firstAttribute="centerY" secondItem="DRI-Iy-uPB" secondAttribute="centerY" id="DRI-Np-LSu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DRI-4n-8Qi" secondAttribute="trailing" id="DRI-Xc-d2g"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <outlet property="darkReaderModeNameLabel" destination="DRI-SV-zy7" id="DRI-Rc-Ag2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DRI-K0-9ev" id="DRI-CS-w8l"/>
+                            <outlet property="delegate" destination="DRI-K0-9ev" id="DRI-Pq-Cwv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Dark Reader Integration" id="DRI-mg-l7R"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DRI-fX-sNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4942" y="930"/>
         </scene>

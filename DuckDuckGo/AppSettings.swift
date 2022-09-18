@@ -20,6 +20,7 @@
 protocol AppSettings: AnyObject {
     var autocomplete: Bool { get set }
     var currentThemeName: ThemeName { get set }
+    var currentDarkReaderModeName: DarkReaderModeName { get set }
     
     var autoClearAction: AutoClearSettingsModel.Action { get set }
     var autoClearTiming: AutoClearSettingsModel.Timing { get set }

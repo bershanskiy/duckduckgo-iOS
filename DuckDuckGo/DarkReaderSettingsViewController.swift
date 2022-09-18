@@ -1,8 +1,8 @@
 //
-//  ThemeSettingsViewController.swift
+//  DarkReaderSettingsViewController.swift
 //  DuckDuckGo
 //
-//  Copyright © 2019 DuckDuckGo. All rights reserved.
+//  Copyright © 2022 DuckDuckGo. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -20,16 +20,16 @@
 import UIKit
 import Core
 
-class ThemeSettingsViewController: UITableViewController {
-    
-    private typealias ThemeEntry = (themeName: ThemeName, displayName: String)
-    
+class DarkReaderSettingsViewController: UITableViewController {
+    private typealias ModeEntry = (modeName: DarkReaderModeName, displayName: String)
     private lazy var appSettings = AppDependencyProvider.shared.appSettings
     
-    private lazy var availableThemes: [ThemeEntry] = {
-        return [(ThemeName.systemDefault, UserText.themeNameDefault),
-                (ThemeName.light, UserText.themeNameLight),
-                (ThemeName.dark, UserText.themeNameDark)]
+    private lazy var availableModes: [ModeEntry] = {
+        return [(DarkReaderModeName.systemDefault, UserText.darkReaderModeNameSystemDefault),
+                (DarkReaderModeName.themeDefault, UserText.darkReaderModeNameThemeDefault),
+                (DarkReaderModeName.light, UserText.darkReaderModeNameLight),
+                (DarkReaderModeName.dark, UserText.darkReaderModeNameDark),
+                (DarkReaderModeName.off, UserText.darkReaderModeNameOff)]
     }()
 
     override func viewDidLoad() {
@@ -39,58 +39,55 @@ class ThemeSettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return availableThemes.count
+        return availableModes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "ThemeItemCell", for: indexPath)
+        return tableView.dequeueReusableCell(withIdentifier: "DarkReaderModeItemCell", for: indexPath)
     }
  
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? ThemeItemCell else {
-            fatalError("Expected ThemeItemCell")
+        guard let cell = cell as? DarkReaderModeItemCell else {
+            fatalError("Expected DarkReaderModeItemCell")
         }
-        
+
         let theme = ThemeManager.shared.currentTheme
         cell.backgroundColor = theme.tableCellBackgroundColor
         cell.setHighlightedStateBackgroundColor(theme.tableCellHighlightedBackgroundColor)
         
         // Checkmark color
         cell.tintColor = theme.buttonTintColor
-        cell.themeNameLabel.textColor = theme.tableCellTextColor
+        cell.darkReaderModeNameLabel.textColor = theme.tableCellTextColor
         
-        cell.themeName = availableThemes[indexPath.row].displayName
+        cell.darkReaderModeName = availableModes[indexPath.row].displayName
 
-        let themeName = availableThemes[indexPath.row].themeName
-        cell.accessoryType = themeName == appSettings.currentThemeName ? .checkmark : .none
+        let modeName = availableModes[indexPath.row].modeName
+        cell.accessoryType = modeName == appSettings.currentDarkReaderModeName ? .checkmark : .none
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let theme = availableThemes[indexPath.row].themeName
-
-        ThemeManager.shared.enableTheme(with: theme)
-
-        ThemeManager.shared.updateUserInterfaceStyle()
+        let mode = availableModes[indexPath.row].modeName
+        appSettings.currentDarkReaderModeName = mode
+        tableView.reloadData()
     }
 }
 
-class ThemeItemCell: UITableViewCell {
+class DarkReaderModeItemCell: UITableViewCell {
+    @IBOutlet weak var darkReaderModeNameLabel: UILabel!
 
-    @IBOutlet weak var themeNameLabel: UILabel!
-
-    var themeName: String? {
+    var darkReaderModeName: String? {
         get {
-            return themeNameLabel.text
+            return darkReaderModeNameLabel.text
         }
         set {
-            themeNameLabel.text = newValue
+            darkReaderModeNameLabel.text = newValue
         }
     }
 }
 
-extension ThemeSettingsViewController: Themable {
+extension DarkReaderSettingsViewController: Themable {
 
     func decorate(with theme: Theme) {
         

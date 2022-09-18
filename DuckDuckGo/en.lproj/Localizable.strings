@@ -331,6 +331,36 @@
 /* Broken Site Section Title */
 "brokensite.sectionTitle" = "DESCRIBE WHAT HAPPENED";
 
+/* Short entry for Dark Reader Dark mode */
+"darkReader.acc.dark" = "Dark";
+
+/* Short entry for Dark Reader Light mode */
+"darkReader.acc.light" = "Light";
+
+/* Short entry for Dark Reader disabled mode */
+"darkReader.acc.off" = "Off";
+
+/* Short entry for Dark Reader mode matching System theme */
+"darkReader.acc.system" = "System";
+
+/* Short entry for Dark Reader mode matching DDG theme */
+"darkReader.acc.theme" = "Theme";
+
+/* Dark Reader Dark mode entry */
+"darkReader.name.dark" = "Dark";
+
+/* Dark Reader Light mode entry */
+"darkReader.name.light" = "Light";
+
+/* Dark Reader disabled mode entry */
+"darkReader.name.off" = "Off";
+
+/* Entry for Dark Reader mode matching System theme */
+"darkReader.name.system" = "Match System";
+
+/* Entry for Dark Reader mode matching DDG theme */
+"darkReader.name.theme" = "Match Theme";
+
 /* Title for a section containing only items from past month */
 "date.range.past-month" = "Past month";
 
