@@ -558,8 +558,8 @@
 		CBD4F13F279EBFAF00B20FD7 /* HomeMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF14FC427970AB0001D94D0 /* HomeMessageViewModel.swift */; };
 		CBD4F140279EBFB300B20FD7 /* SwiftUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1AEFB02799AA940031AE3D /* SwiftUICollectionViewCell.swift */; };
 		E37CD53F28DDB0E10079A759 /* DynamicModeFixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37CD53E28DDB0E10079A759 /* DynamicModeFixes.swift */; };
+		E37CD54128DDB8A30079A759 /* DarkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37CD54028DDB8A20079A759 /* DarkReader.swift */; };
 		E3807AEC28D5C6A400AFE1BF /* DarkReaderSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3807AEB28D5C6A400AFE1BF /* DarkReaderSettingsViewController.swift */; };
-		E3807AEE28D73F9F00AFE1BF /* DarkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3807AED28D73F9F00AFE1BF /* DarkReader.swift */; };
 		EA39B7E2268A1A35000C62CD /* privacy-reference-tests in Resources */ = {isa = PBXBuildFile; fileRef = EA39B7E1268A1A35000C62CD /* privacy-reference-tests */; };
 		EAB19EDA268963510015D3EA /* DomainMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19ED9268963510015D3EA /* DomainMatchingTests.swift */; };
 		F103073B1E7C91330059FEC7 /* BookmarksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103073A1E7C91330059FEC7 /* BookmarksDataSource.swift */; };
@@ -2702,7 +2702,6 @@
 		84E341941E2F7EFB00BDBA6F /* DuckDuckGo */ = {
 			isa = PBXGroup;
 			children = (
-				E3807AED28D73F9F00AFE1BF /* DarkReader.swift */,
 				3157B43627F4C8380042D3D7 /* Favicons */,
 				AA4D6A8023DE4973007E8790 /* AppIcon */,
 				F1C5ECF31E37812900C599A4 /* Application */,
@@ -5077,7 +5076,6 @@
 				85449EFD23FDA71F00512AAF /* KeyboardSettings.swift in Sources */,
 				980891A222369ADB00313A70 /* FeedbackUserText.swift in Sources */,
 				988F3DD3237DE8D900AEE34C /* ForgetDataAlert.swift in Sources */,
-				E3807AEE28D73F9F00AFE1BF /* DarkReader.swift in Sources */,
 				9817C9C321EF594700884F65 /* AutoClear.swift in Sources */,
 				310C4B47281B60E300BA79A9 /* AutofillLoginDetailsViewModel.swift in Sources */,
 				85EE7F572246685B000FE757 /* WebContainerViewController.swift in Sources */,

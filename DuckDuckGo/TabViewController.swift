@@ -85,6 +85,9 @@ class TabViewController: UIViewController {
 
     private weak var privacyDashboard: PrivacyDashboardViewController?
     
+    // TODO: share Dark Reader implementation across tabs
+    private lazy var darkReader: DarkReader = DarkReader()
+
     private(set) lazy var appUrls: AppUrls = AppUrls()
     private var storageCache: StorageCache = AppDependencyProvider.shared.storageCache.current
     private lazy var appSettings = AppDependencyProvider.shared.appSettings
@@ -593,10 +596,6 @@ class TabViewController: UIViewController {
 
     func goForward() {
         // TODO DR integration
-        scheduleNavigationExpectation(destinationURL: webView.backForwardList.forwardItem?.url,
-                                      onSessionRestored: { [weak self] in
-            self?.goForward()
-        })
         dismissJSAlertIfNeeded()
 
         if webView.goForward() != nil {
