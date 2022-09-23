@@ -21,57 +21,57 @@ import Foundation
 
 class DynamicModeFixes {
     
-private struct Fixes: Decodable {
-    var index: [String: [Int]] = [:]
-    var fixes: [Fix] = []
-}
-
-private struct Fix: Decodable, Encodable {
-    let url: [String]
-    let invert: [String]?
-    let css: String?
-    let ignoreInlineStyle: [String]?
-    let ignoreImageAnalysis: [String]?
-    let disableStyleSheetsProxy: Bool?
-}
-
-private func loadAllFixes() -> Fixes {
-    // TODO: make sure to use the correct file path
-    if let fixesURL = Bundle.main.url(forResource: "dynamic-theme-fixes", withExtension: "json") {
-        if let fixesJSON = try? Data(contentsOf: fixesURL) {
-            let fixes: Fixes = try! JSONDecoder().decode(Fixes.self, from: fixesJSON)
-            return fixes
-        }
+    private struct Fixes: Decodable {
+        var index: [String: [Int]] = [:]
+        var fixes: [Fix] = []
     }
-    return Fixes()
-}
 
-private func selectRelevantFixes(host: String, fixes: Fixes) -> [Fix] {
-    var relevantFixes: [Fix] = []
+    private struct Fix: Decodable, Encodable {
+        let url: [String]
+        let invert: [String]?
+        let css: String?
+        let ignoreInlineStyle: [String]?
+        let ignoreImageAnalysis: [String]?
+        let disableStyleSheetsProxy: Bool?
+    }
+
+    private func loadAllFixes() -> Fixes {
+        // TODO: make sure to use the correct file path
+        if let fixesURL = Bundle.main.url(forResource: "dynamic-theme-fixes", withExtension: "json") {
+            if let fixesJSON = try? Data(contentsOf: fixesURL) {
+                let fixes: Fixes = try! JSONDecoder().decode(Fixes.self, from: fixesJSON)
+                return fixes
+            }
+        }
+        return Fixes()
+    }
+
+    private func selectRelevantFixes(host: String, fixes: Fixes) -> [Fix] {
+        var relevantFixes: [Fix] = []
     
-    // Default fix has label "*"
-    var relevantIndexes: Set<Int> = Set(fixes.index["*"] ?? [])
+        // Default fix has label "*"
+        var relevantIndexes: Set<Int> = Set(fixes.index["*"] ?? [])
 
-    // Find all site-specific fixes
-    let labels: [String] = host.lowercased().components(separatedBy: ".")
-    for first in 0..<labels.count {
-        let host = labels.suffix(from: first).joined(separator: ".")
-        if let fixes = fixes.index[host] {
-            relevantIndexes = relevantIndexes.union(fixes)
+        // Find all site-specific fixes
+        let labels: [String] = host.lowercased().components(separatedBy: ".")
+        for first in 0..<labels.count {
+            let host = labels.suffix(from: first).joined(separator: ".")
+            if let fixes = fixes.index[host] {
+                relevantIndexes = relevantIndexes.union(fixes)
+            }
         }
+
+        for index in relevantIndexes {
+            relevantFixes.append(fixes.fixes[index])
+        }
+
+        return relevantFixes
     }
 
-    for index in relevantIndexes {
-        relevantFixes.append(fixes.fixes[index])
+    private func fixesConfig(host: String, fixes: Fixes) -> String {
+        let relevantFixes = selectRelevantFixes(host: host, fixes: fixes)
+        let encoded = try! JSONEncoder().encode(relevantFixes)
+        return String(data: encoded, encoding: String.Encoding.utf8) ?? ""
     }
-
-    return relevantFixes
-}
-
-private func fixesConfig(host: String, fixes: Fixes) -> String {
-    let relevantFixes = selectRelevantFixes(host: host, fixes: fixes)
-    let encoded = try! JSONEncoder().encode(relevantFixes)
-    return String(data: encoded, encoding: String.Encoding.utf8) ?? ""
-}
 
 }

@@ -21,7 +21,9 @@ import Foundation
 import UIKit
 
 enum DarkReaderModeName: String {
+    // Match system color scheme
     case systemDefault
+    // Match Theme
     case themeDefault
     case on
     case off
