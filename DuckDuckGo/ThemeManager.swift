@@ -67,6 +67,7 @@ class ThemeManager {
             return DarkTheme()
         case .light:
             return LightTheme()
+        // After updating this, please also udate DarkReader.isEnabled()
         default:
             return DarkTheme()
         }

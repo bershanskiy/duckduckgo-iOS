@@ -18,6 +18,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum DarkReaderModeName: String {
     case systemDefault
@@ -38,14 +39,34 @@ class DarkReader {
     }
     
     func isEnabled() -> Bool {
-        // Dark Reader is enabled if:
-        //
         switch appSettings.currentDarkReaderModeName {
         case .systemDefault:
-            return true // TODO
+            switch UIScreen.main.traitCollection.userInterfaceStyle {
+            case .dark:
+                return true
+            case .light:
+                return false
+            default:
+                return true
+            }
         case .themeDefault:
-            let theme = appSettings.currentThemeName
-            return theme == .dark || theme == .systemDefault// TODO
+            switch appSettings.currentThemeName {
+            case .dark:
+                return true
+            case .light:
+                return false
+            case .systemDefault:
+                switch UIScreen.main.traitCollection.userInterfaceStyle {
+                case .dark:
+                    return true
+                case .light:
+                    return false
+                // This is analogus to ThemeManager.obtainSystemTheme()
+                // Make sure to sync these two configs
+                default:
+                    return true
+                }
+            }
         case .on:
             return true
         case .off:
