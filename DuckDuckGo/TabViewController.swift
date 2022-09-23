@@ -71,6 +71,8 @@ class TabViewController: UIViewController {
     private(set) var webView: WKWebView!
     private lazy var appRatingPrompt: AppRatingPrompt = AppRatingPrompt()
     private weak var privacyController: PrivacyProtectionController?
+    // TODO: share Dark Reader implementation across tabs
+    private lazy var darkReader: DarkReader = DarkReader()
 
     private(set) lazy var appUrls: AppUrls = AppUrls()
     private var storageCache: StorageCache = AppDependencyProvider.shared.storageCache.current
@@ -549,7 +551,9 @@ class TabViewController: UIViewController {
         }
 
         webView.stopLoading()
+        Swift.print(urlRequest.url)
         webView.load(urlRequest)
+        //if (appSettings.da)
     }
     
     // swiftlint:disable block_based_kvo
@@ -657,6 +661,7 @@ class TabViewController: UIViewController {
     }
     
     func goBack() {
+        // TODO: DR integration
         dismissJSAlertIfNeeded()
 
         if isError {
@@ -673,6 +678,7 @@ class TabViewController: UIViewController {
     }
     
     func goForward() {
+        // TODO DR integration
         dismissJSAlertIfNeeded()
 
         if webView.goForward() != nil {

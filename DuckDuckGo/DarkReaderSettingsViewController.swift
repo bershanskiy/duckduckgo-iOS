@@ -27,8 +27,7 @@ class DarkReaderSettingsViewController: UITableViewController {
     private lazy var availableModes: [ModeEntry] = {
         return [(DarkReaderModeName.systemDefault, UserText.darkReaderModeNameSystemDefault),
                 (DarkReaderModeName.themeDefault, UserText.darkReaderModeNameThemeDefault),
-                (DarkReaderModeName.light, UserText.darkReaderModeNameLight),
-                (DarkReaderModeName.dark, UserText.darkReaderModeNameDark),
+                (DarkReaderModeName.on, UserText.darkReaderModeNameOn),
                 (DarkReaderModeName.off, UserText.darkReaderModeNameOff)]
     }()
 

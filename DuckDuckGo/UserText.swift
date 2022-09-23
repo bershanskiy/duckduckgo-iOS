@@ -287,8 +287,7 @@ public struct UserText {
 
     public static let darkReaderModeNameSystemDefault = NSLocalizedString("darkReader.name.system", value: "Match System", comment: "Entry for Dark Reader mode matching System theme")
     public static let darkReaderModeNameThemeDefault = NSLocalizedString("darkReader.name.theme", value: "Match Theme", comment: "Entry for Dark Reader mode matching DDG theme")
-    public static let darkReaderModeNameLight = NSLocalizedString("darkReader.name.light", value: "Light", comment: "Dark Reader Light mode entry")
-    public static let darkReaderModeNameDark = NSLocalizedString("darkReader.name.dark", value: "Dark", comment: "Dark Reader Dark mode entry")
+    public static let darkReaderModeNameOn = NSLocalizedString("darkReader.name.on", value: "On", comment: "Dark Reader Dark mode entry")
     public static let darkReaderModeNameOff = NSLocalizedString("darkReader.name.off", value: "Off", comment: "Dark Reader disabled mode entry")
     
     public static let themeAccessoryDefault = NSLocalizedString("theme.acc.default", value: "System", comment: "Short entry for Default System theme")
@@ -297,8 +296,7 @@ public struct UserText {
     
     public static let darkReaderModeAccessorySystemDefault = NSLocalizedString("darkReader.acc.system", value: "System", comment: "Short entry for Dark Reader mode matching System theme")
     public static let darkReaderModeAccessoryThemeDefault = NSLocalizedString("darkReader.acc.theme", value: "Theme", comment: "Short entry for Dark Reader mode matching DDG theme")
-    public static let darkReaderModeAccessoryLight = NSLocalizedString("darkReader.acc.light", value: "Light", comment: "Short entry for Dark Reader Light mode")
-    public static let darkReaderModeAccessoryDark = NSLocalizedString("darkReader.acc.dark", value: "Dark", comment: "Short entry for Dark Reader Dark mode")
+    public static let darkReaderModeAccessoryOn = NSLocalizedString("darkReader.acc.on", value: "On", comment: "Short entry for Dark Reader Dark mode")
     public static let darkReaderModeAccessoryOff = NSLocalizedString("darkReader.acc.off", value: "Off", comment: "Short entry for Dark Reader disabled mode")
 
     public static let autoClearAccessoryOn = NSLocalizedString("autoclear.on", value: "On", comment: "")

@@ -166,10 +166,8 @@ class SettingsViewController: UITableViewController {
             darkReaderAccessoryText.text = UserText.darkReaderModeAccessorySystemDefault
         case .themeDefault:
             darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryThemeDefault
-        case .light:
-            darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryLight
-        case .dark:
-            darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryDark
+        case .on:
+            darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryOn
         case .off:
             darkReaderAccessoryText.text = UserText.darkReaderModeAccessoryOff
         }
