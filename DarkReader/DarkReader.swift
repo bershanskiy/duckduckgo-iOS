@@ -56,16 +56,9 @@ class DarkReader {
             case .light:
                 return false
             case .systemDefault:
-                switch UIScreen.main.traitCollection.userInterfaceStyle {
-                case .dark:
-                    return true
-                case .light:
-                    return false
                 // This is analogus to ThemeManager.obtainSystemTheme()
                 // Make sure to sync these two configs
-                default:
-                    return true
-                }
+                return UIScreen.main.traitCollection.userInterfaceStyle != .light
             }
         case .on:
             return true
