@@ -1059,11 +1059,14 @@ extension TabViewController: WKNavigationDelegate {
 
             } else if let downloadMetadata = AppDependencyProvider.shared.downloadManager
                 .downloadMetaData(for: navigationResponse.response) {
-
-                self.presentSaveToDownloadsAlert(with: downloadMetadata) {
-                    self.startDownload(with: navigationResponse, decisionHandler: decisionHandler)
-                } cancelHandler: {
+                if view.window == nil {
                     decisionHandler(.cancel)
+                } else {
+                    self.presentSaveToDownloadsAlert(with: downloadMetadata) {
+                        self.startDownload(with: navigationResponse, decisionHandler: decisionHandler)
+                    } cancelHandler: {
+                        decisionHandler(.cancel)
+                    }
                 }
             } else {
                 Pixel.fire(pixel: .unhandledDownload)
@@ -2069,14 +2072,14 @@ extension TabViewController: UIGestureRecognizerDelegate {
 
     func refresh() {
         let url: URL?
-        if isError {
+        if isError || webView.url == nil {
             url = URL(string: chromeDelegate?.omniBar.textField.text ?? "")
         } else {
             url = webView.url
         }
 
         requeryLogic.onRefresh()
-        if isError, let url = url {
+        if isError || webView.url == nil, let url = url {
             load(url: url)
         } else {
             reload()
