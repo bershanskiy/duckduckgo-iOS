@@ -2356,7 +2356,6 @@ extension TabViewController: SecureVaultManagerDelegate {
         false
     }
     
-    // swiftlint:disable:next identifier_name
     func secureVaultManager(_: SecureVaultManager, didRequestAuthenticationWithCompletionHandler: @escaping (Bool) -> Void) {
         // We don't have auth yet
     }
