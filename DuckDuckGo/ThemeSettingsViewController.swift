@@ -26,6 +26,8 @@ class ThemeSettingsViewController: UITableViewController {
     
     private lazy var appSettings = AppDependencyProvider.shared.appSettings
     
+    private let previousTheme = AppDependencyProvider.shared.appSettings.currentThemeName
+    
     private lazy var availableThemes: [ThemeEntry] = {
         return [(ThemeName.systemDefault, UserText.themeNameDefault),
                 (ThemeName.light, UserText.themeNameLight),
@@ -69,6 +71,7 @@ class ThemeSettingsViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let theme = availableThemes[indexPath.row].themeName
+        appSettings.currentThemeName = theme
 
         ThemeManager.shared.enableTheme(with: theme)
 
