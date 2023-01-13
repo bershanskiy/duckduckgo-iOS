@@ -79,9 +79,6 @@ class TabViewController: UIViewController {
 
     private(set) var webView: WKWebView!
     private lazy var appRatingPrompt: AppRatingPrompt = AppRatingPrompt()
-    private weak var privacyController: PrivacyProtectionController?
-    // TODO: share Dark Reader implementation across tabs
-    private lazy var darkReader: DarkReader = DarkReader()
 
     private weak var privacyDashboard: PrivacyDashboardViewController?
     
